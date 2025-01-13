@@ -4,7 +4,7 @@
   {
     static void Main(string[] args)
     {
-      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+      SingleLinkedList singlyLinkedList = new SingleLinkedList();
       singlyLinkedList.InsertLast(1);
       singlyLinkedList.InsertLast(14);
       singlyLinkedList.InsertLast(15);

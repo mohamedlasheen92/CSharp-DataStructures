@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace SinglyLinkedList
+﻿namespace SinglyLinkedList
 {
-  internal class SinglyLinkedList
+  public class SingleLinkedList
   {
-    private LinkedListNode Head;
-    private LinkedListNode Tail;
+    public LinkedListNode Head;
+    public LinkedListNode Tail;
+    public int Length;
 
-    public SinglyLinkedList()
+    public SingleLinkedList()
     {
       Head = null;
       Tail = null;
+      Length = 0;
     }
 
     public void InsertLast(int _data)
@@ -31,6 +26,8 @@ namespace SinglyLinkedList
         Tail.Next = newNode;
         Tail = newNode;
       }
+
+      Length++;
     }
     public void InsertAfter(int _target, int _data)
     {
@@ -43,6 +40,7 @@ namespace SinglyLinkedList
       {
         Tail = newNode;
       }
+      Length++;
     }
     public void InsertBefore(int _target, int _data)
     {
@@ -61,7 +59,19 @@ namespace SinglyLinkedList
       {
         parent.Next = newNode;
       }
-
+      Length++;
+    }
+    public void InsertFirst(int _data)
+    {
+      LinkedListNode newNode = new LinkedListNode(_data);
+      if (Head == null)
+        Head = newNode;
+      else
+      {
+        newNode.Next = Head;
+        Head = newNode;
+      }
+      Length++;
     }
     public void DeleteNode(int _target)
     {
@@ -91,7 +101,14 @@ namespace SinglyLinkedList
       }
 
       node = null;
+      Length++;
+    }
+    public void DeleteHead()
+    {
+      if (Head == null) return;
+      Head = Head.Next;
 
+      Length--;
     }
 
     public void PrintList()
