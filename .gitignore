@@ -2,6 +2,6 @@
 bin/
 obj/
 x64/
-*.vcxproj
-*.filters
+
+
 *.user
